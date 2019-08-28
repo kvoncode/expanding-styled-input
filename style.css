@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -9,4 +12,44 @@ body {
     height: 100vh;
     width: 100vw;
     
+}
+
+#text-field {
+  font-family: 'Raleway';
+
+  height: 2rem;
+  width: 12rem;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 0;
+  background: #a7c6d1;
+}
+
+#text-field:focus {
+  outline: 0;
+  background: #038087;
+  border: 2px solid #a7c6d1;
+  color: #e8eeee;
+}
+
+#submit {
+  font-family: 'Raleway';
+
+  background: #038087;
+  height: 2rem;
+  width: 6rem;
+  margin: 1rem;
+  color: white;
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+#submit:hover {
+  background: #086270;
+}
+
+#submit:focus {
+  outline: 0;
+  border: 2px solid #E8EEEE;
 }
