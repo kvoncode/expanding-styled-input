@@ -6,6 +6,7 @@ body {
     margin: 0;
 }
 #root {
+  background: #e8eeee;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +16,7 @@ body {
 }
 
 #text-field {
+  color: #038087;
   font-family: 'Raleway';
   font-size: 1rem;
   height: 2rem;
