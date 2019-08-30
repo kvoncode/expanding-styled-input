@@ -1,0 +1,65 @@
+Welcome to 3rd video
+
+In this tutorial we are gonna add some dynamic functionality to our text field
+
+As you can see when some text added that are wider than out text field, it expands till some limit. Let's implement this step by step
+
+Initially whe have no auto-expanding text field
+
+Now what we want to do in terms of Javascript is: 
+
+1. When user pressing keyboard check whether width of text inside input elements is wider than width of our input elements. If it is then make input wider
+
+2. Do not make input wider if it is got particular wide length
+
+So let's simplify task and for now just  ignore second task, and begin with first
+
+First of all we connect jquery from Google CDN, and connect our script file to our page
+
+Then in our script we are gonna create basic framework using comments, based on our descriptional algorithm
+
+When user press keyboard we need to do something, so we can use jQuery to select our text field, and attach an event handler called ".keypress"
+
+"jQuery" or "$" it is the same object called jQuery object. 
+
+It's a global object that is a "universal" function. 
+
+Using it you select HTML elements, instead of using long DOM API functions to select elements like: document.getElementById("selector") we use $("selector") and then chaining some actions which we need to perform on object like keypress: $("selector").keypress(f)
+
+Let's do this
+
+.keypress() event handler accept function as an argument. This function will be executed every time the keyboard is pressed
+
+Now let's describe our algorithm
+
+In order to get text width inside input element we need to do following trick:
+
+Create "hidden" span element, apply font related styles to that element exactly as in input, every keypress we are gonna paste input text to our span element, and measure the width of span
+
+Then check whether this width are wider than input. If so change input width to that width. So let's begin
+
+First of all to get text we use .val() function
+
+Then we are gonna create span and apply styles as in input
+
+After that, paste text to this span with jQuery .text() function
+
+And get width of span after we pasted text with .outerWidth() function
+
+Now compare our newWidth with old width
+
+Now assign newWidth if is wider
+
+Now it's working but text are still disappearing partially
+
+That's happening because of the  input element's padding
+
+We can fix this by preserving more space. So do so
+
+Now it's works, but we need to add limit to input element's width. So do so 
+
+As you can see our input not expanding beyond our limit
+
+Now at last we need to hide out span with css, and make position fixed so it doesn't take up space on our page flow
+
+So that's it, see you next time
