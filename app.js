@@ -1,20 +1,23 @@
-$("#text-field").keypress(function(e) {
+
+// each time on keypress do following
+$("#text-field").keypress(function (e) { 
+
   let offset = 10;
-  let maxWidth = 300;
+  let widthLimit = 300;
 
   let inputText = $("#text-field").val();
 
   $("#width-measure").text(inputText);
 
-  let newWidth = $("#width-measure").outerWidth();
-  console.log("TCL: newWidth", newWidth);
+  let newWidth = $("#width-measure").outerWidth() + offset;
+  
 
-  let currentWidth = $("#text-field").width();
-  console.log("TCL: currentWidth", currentWidth);
+  let oldWidth = $("#text-field").width();
 
-  if (newWidth + offset > maxWidth) {
+  if (newWidth > widthLimit) {
     return;
-  } else if (newWidth + offset > currentWidth) {
-    $("#text-field").width(newWidth + offset);
+  } else if (newWidth > oldWidth) {
+    $("#text-field").width(newWidth);
   }
+  
 });
