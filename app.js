@@ -1,6 +1,6 @@
 
 // each time on keypress do following
-$("#text-field").keypress(function (e) { 
+$("#text-field").keyup(function (e) { 
 
   let offset = 10;
   let widthLimit = 300;
