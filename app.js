@@ -1,23 +1,34 @@
+"use strict";
 
-// each time on keypress do following
-$("#text-field").keyup(function (e) { 
+$(document).ready(function() {
+  // From below width choose the smallest
+  const widthLimitConst = 300;
+  const viewportWidth = $(window).width();
+  console.log("TCL: viewportWidth", viewportWidth);
 
-  let offset = 10;
-  let widthLimit = 300;
+  const widthLimit =
+    widthLimitConst > viewportWidth ? viewportWidth : widthLimitConst;
 
-  let inputText = $("#text-field").val();
+  const inputMargin =
+    $("#text-field").outerWidth(true) - $("#text-field").outerWidth();
 
-  $("#width-measure").text(inputText);
+  console.log("TCL: inputMargin", inputMargin);
+  // each time on keypress do following
+  $("#text-field").keyup(function(e) {
+    let inputText = $("#text-field").val();
 
-  let newWidth = $("#width-measure").outerWidth() + offset;
-  
+    $("#width-measure").text(inputText);
 
-  let oldWidth = $("#text-field").width();
+    let newWidth = $("#width-measure").outerWidth();
 
-  if (newWidth > widthLimit) {
-    return;
-  } else if (newWidth > oldWidth) {
-    $("#text-field").width(newWidth);
-  }
-  
+    if ($("#text-field").outerWidth(true) < widthLimit) {
+      
+      let oldWidth = $("#text-field").width();
+
+      if (newWidth > oldWidth) {
+        $("#text-field").width(newWidth);
+        console.log("TCL: newWidth", newWidth);
+      }
+    }
+  });
 });
