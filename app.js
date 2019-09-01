@@ -2,13 +2,16 @@
 
 $(document).ready(function() {
   // From below width choose the smallest
-  const widthLimitConst = 300;
+  const widthLimitConst = 400;
   const viewportWidth = $(window).width();
 
   const widthLimit =
     widthLimitConst > viewportWidth ? viewportWidth : widthLimitConst;
 
   const initialInputWidth = $("#text-field").outerWidth(true);
+  const initialInputInnerWidth = $("#text-field").width();
+
+  const widthOffset = 2;
 
   // each time on keypress do following
   $("#text-field").keyup(function(e) {
@@ -22,8 +25,12 @@ $(document).ready(function() {
     // compare outerWidth, but assign width
 
     if (newWidth < widthLimit && newWidth > initialInputWidth) {
-      $("#text-field").width($("#width-measure").width());
+      $("#text-field").width($("#width-measure").width() + widthOffset);
       console.log("TCL: newWidth", newWidth);
+    }
+
+    if (newWidth < initialInputWidth) {
+      $("#text-field").width(initialInputInnerWidth);
     }
   });
 });
