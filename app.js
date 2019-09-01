@@ -3,7 +3,9 @@
 $(document).ready(function() {
   // From below width choose the smallest
   const widthLimitConst = 400;
-  const viewportWidth = $(window).width();
+
+  const viewportOffset = 10;
+  const viewportWidth = $(window).width() - viewportOffset;
 
   const widthLimit =
     widthLimitConst > viewportWidth ? viewportWidth : widthLimitConst;
