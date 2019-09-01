@@ -21,15 +21,12 @@ $(document).ready(function() {
 
     let newWidth = $("#width-measure").outerWidth(true);
 
-
     // compare outerWidth, but assign width
 
     if (newWidth < widthLimit && newWidth > initialInputWidth) {
       $("#text-field").width($("#width-measure").width() + widthOffset);
       console.log("TCL: newWidth", newWidth);
-    }
-
-    if (newWidth < initialInputWidth) {
+    } else if (newWidth < initialInputWidth) {
       $("#text-field").width(initialInputInnerWidth);
     }
   });
