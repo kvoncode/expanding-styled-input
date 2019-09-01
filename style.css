@@ -63,8 +63,11 @@ body {
 #width-measure {
   font-family: "Raleway";
   font-size: 1rem;
-  visibility: hidden;
+  /* visibility: hidden; */
   position: fixed;
+  height: 2rem;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 @media only screen and (max-width: 768px) {
