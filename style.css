@@ -3,21 +3,24 @@
 }
 
 body {
-    margin: 0;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #root {
   background: #e8eeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    
+
+  height: 100vh;
+  width: 100vw;
 }
 
 #text-field {
   color: #038087;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-size: 1rem;
   height: 2rem;
   width: 12rem;
@@ -36,7 +39,7 @@ body {
 }
 
 #submit {
-  font-family: 'Raleway';
+  font-family: "Raleway";
 
   background: #038087;
   height: 2rem;
@@ -53,12 +56,18 @@ body {
 
 #submit:focus {
   outline: 0;
-  border: 2px solid #E8EEEE;
+  border: 2px solid #e8eeee;
 }
 
 #width-measure {
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-size: 1rem;
   visibility: hidden;
   position: fixed;
+}
+
+@media only screen and (max-width: 768px) {
+  form {
+    flex-direction: column;
+  }
 }
