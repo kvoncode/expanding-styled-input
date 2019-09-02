@@ -66,6 +66,10 @@ body {
   position: fixed;
 }
 
+::placeholder {
+  color: rgba(255, 255, 255, 0.52);
+}
+
 @media only screen and (max-width: 768px) {
   form {
     flex-direction: column;
