@@ -1,0 +1,59 @@
+Welcome to the 4th video
+
+In this tutorial we are gonna:
+1) Make our page responsive
+2) Add auto shrinking functionality
+
+Let make our page responsive by adding "viewport" meta, but first theory
+
+The browser's viewport is the area of the window in which web content can be seen
+
+This is often not the same size as rendered page, in which case browser provides scrollbars
+
+Narrow screen devices like mobile are render pages in a virtual viewport that is wider than real screen
+
+We can define browser render with viewport meta, to narrow down virtual viewport size, and then define page behaivour using media queries
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+This meta tag tells browser to make viewport width equal to device width, and scale page with 1:1 proportion. Let's add it and see result
+
+Now when the viewport width is 320 pixels we can see that button are shifted down. We want it be aligned and can make it with "media query"
+
+Media query is a CSS technique introduced in CSS3. It uses "@media" rule to add CSS properties when certain condition is true
+
+In our case condition is when viewport width become below certain value. For example 768px for some tablets. Thus rule "@media only screen and (max-width: 768px)". 
+
+The "max-width" part means when width are 768px or less
+
+Let's add this media query to align text field and button
+
+Next let's add placeholder to text field and style it
+
+We use "::placeholder" selector to style text color
+
+Now the JavaScript part
+
+We want:
+1) When text field is expanding, do not expand it beyond viewport width or width limit if viewport width is greateer than limit
+2) When text width inside text field are less than initial width set to initial width. This includes cases when user deletes text with "Delete" or "Backspace" buttons
+
+We have some code in app.js file, but sometimes when program logic have big differences it's better to start from scratch. This way our code represent exact thought in our minds. Instead of trying to insert new code. If we would try fix instead, we would encounter situation when by adding new code we create twisted mess with unrelated existing code
+
+So delete all existing code and begin with "document ready"
+
+There is another similar event handler: "window load"
+
+The difference is document-ready is triggered when HTML document loaded and DOM is ready, but window-load is triggered when page loaded completely, including images, frames, etc.
+
+So first of all we want set width limit for text field
+
+We want text to expand but not excess limit
+
+For our calculations we style hidden span as text input and use "outerWidth()" function
+
+.width() gets the content width of an element regardless the box-sizing property, and .outerWidth() is width with padding, border and optionally margin
+
+So writee algorithm and check 
+
+And that's it. See you next time
