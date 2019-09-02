@@ -1,23 +1,27 @@
+$(document).ready(function() {
+  const viewportWidth = $(window).width();
+  const viewportLimit = viewportWidth - 10;
 
-// each time on keypress do following
-$("#text-field").keypress(function (e) { 
+  const maxInputWidth = 400;
 
-  let offset = 10;
-  let widthLimit = 300;
+  const widthLimit =
+    viewportLimit > maxInputWidth ? maxInputWidth : viewportLimit;
 
-  let inputText = $("#text-field").val();
+  const initialWidth = $("#text-field").outerWidth(true);
 
-  $("#width-measure").text(inputText);
+  const widthOffset = 12;
 
-  let newWidth = $("#width-measure").outerWidth() + offset;
-  
+  $("#text-field").keyup(function(e) {
+    const text = $("#text-field").val();
 
-  let oldWidth = $("#text-field").width();
+    $("#width-measure").text(text);
 
-  if (newWidth > widthLimit) {
-    return;
-  } else if (newWidth > oldWidth) {
-    $("#text-field").width(newWidth);
-  }
-  
+    const newWidth = $("#width-measure").outerWidth(true);
+
+    if (newWidth + widthOffset > initialWidth && newWidth < widthLimit) {
+      $("#text-field").outerWidth(newWidth + widthOffset, true);
+    } else if (newWidth < initialWidth) {
+      $("#text-field").outerWidth(initialWidth, true);
+    }
+  });
 });
